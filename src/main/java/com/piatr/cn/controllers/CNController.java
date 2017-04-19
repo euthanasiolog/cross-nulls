@@ -18,31 +18,37 @@ public class CNController implements Print{
     private static final String INDEX = "index";
     private static final String NEXT_NAME = "nextName";
 
-    public String print(HttpServletRequest request, ModelMap modelMap, Type type, Game game) {
+    public void print(HttpServletRequest request, ModelMap modelMap, Type type, Game game) {
         int index = Integer.parseInt(request.getParameter(INDEX));
         GameMap gameMap = game.getGameMap();
-        Type[] types = gameMap.getTypes();
-        types[index]=type;
+        String[] types = gameMap.getTypes();
+        types[index]=type.name();
         for (int i=0;i<types.length;i++){
-            modelMap.addAttribute("index"+String.valueOf(i+1), types[i].name());
+            modelMap.addAttribute("index"+String.valueOf(i+1), types[i]);
         }
-        return "index";
     }
 
     @RequestMapping(value = "/play", params = "X")
-    public void printX (HttpServletRequest request, ModelMap modelMap){
+    public String printX (HttpServletRequest request, ModelMap modelMap){
         String id = request.getRemoteAddr();
         Game game = StartController.findGame(id);
-        modelMap.addAttribute(NEXT_NAME, game.getPlayer2().getName());
+        if (game != null) {
+            modelMap.addAttribute(NEXT_NAME, game.getPlayer2().getName());
+        }else  modelMap.addAttribute(NEXT_NAME, "");
         modelMap.addAttribute("type","O");
         print(request, modelMap, Type.X, game);
+        return "index";
     }
+
     @RequestMapping(value = "/play", params = "O")
-    public void printO (HttpServletRequest request, ModelMap modelMap){
+    public String printO (HttpServletRequest request, ModelMap modelMap){
         String id = request.getRemoteAddr();
         Game game = StartController.findGame(id);
-        modelMap.addAttribute(NEXT_NAME, game.getPlayer1().getName());
+        if (game != null) {
+            modelMap.addAttribute(NEXT_NAME, game.getPlayer1().getName());
+        }else  modelMap.addAttribute(NEXT_NAME, "");
         modelMap.addAttribute("type","X");
         print(request, modelMap, Type.O, game);
+        return "index";
     }
 }

@@ -19,10 +19,9 @@
         <input id="player1" name="player1"></p>
 
     <p><label for="player2">Игрок второй(O), введи имя!</label><br>
-        <input id="player2" name="player1"></p>
+        <input id="player2" name="player2"></p>
     <label for="start">Ну что, готовы?</label><br>
     <input id="start" type="submit">
 </form>
-</body>
 </body>
 </html>

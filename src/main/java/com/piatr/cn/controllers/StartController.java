@@ -27,6 +27,9 @@ public class StartController {
         games.add(new Game(request.getParameter(PLAYER1), request.getParameter(PLAYER2), id));
         modelMap.addAttribute("type", "X");
         modelMap.addAttribute("nextName", request.getParameter(PLAYER1));
+        for(int i=0;i<9;i++){
+            modelMap.addAttribute("index"+String.valueOf(i+1), "");
+        }
         return "index";
     }
     static Game findGame(String id){

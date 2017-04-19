@@ -6,9 +6,14 @@ import java.util.ArrayList;
  * Created by piatr on 18.04.17.
  */
 public class GameMap {
-    private Type[] types = new Type[9];
+    private String[] types = new String[9];
 
-    public Type[] getTypes() {
+    public GameMap() {
+        this.types = new String[9];
+        for (int i=0;i<types.length;i++){types[i]="";}
+    }
+
+    public String[] getTypes() {
         return types;
     }
 
