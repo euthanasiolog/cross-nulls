@@ -19,51 +19,51 @@
     <tr>
       <td>
         <form action="/play"><c:if test="${not empty index1}">${index1}</c:if>
-        <input type="hidden" name="index1" value="1">
+        <input type="hidden" name="index" value="1">
         <input type="submit" name="${type}" value="${type}"></form>
       </td>
       <td>
         <form action="/play"><c:if test="${not empty index2}">${index2}</c:if>
-          <input type="hidden" name="index2" value="2">
+          <input type="hidden" name="index" value="2">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
       <td>
         <form action="/play"><c:if test="${not empty index3}">${index3}</c:if>
-          <input type="hidden" name="index3" value="3">
+          <input type="hidden" name="index" value="3">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
     </tr>
     <tr>
       <td>
         <form action="/play"><c:if test="${not empty index4}">${index4}</c:if>
-          <input type="hidden" name="index4" value="4">
+          <input type="hidden" name="index" value="4">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
       <td>
         <form action="/play"><c:if test="${not empty index5}">${index5}</c:if>
-          <input type="hidden" name="index5" value="5">
+          <input type="hidden" name="index" value="5">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
       <td>
         <form action="/play"><c:if test="${not empty index6}">${index6}</c:if>
-          <input type="hidden" name="index6" value="6">
+          <input type="hidden" name="index" value="6">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
     </tr>
     <tr>
       <td>
         <form action="/play"><c:if test="${not empty index7}">${index7}</c:if>
-          <input type="hidden" name="index7" value="7">
+          <input type="hidden" name="index" value="7">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
       <td>
         <form action="/play"><c:if test="${not empty index8}">${index8}</c:if>
-          <input type="hidden" name="index8" value="8">
+          <input type="hidden" name="index" value="8">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
       <td>
         <form action="/play"><c:if test="${not empty index9}">${index9}</c:if>
-          <input type="hidden" name="index9" value="9">
+          <input type="hidden" name="index" value="9">
           <input type="submit" name="${type}" value="${type}"></form>
       </td>
     </tr>

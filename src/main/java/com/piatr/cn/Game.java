@@ -29,7 +29,7 @@ public class Game {
     public Game(String player1, String player2, String id) {
         this.id = id;
         this.gameMap = new GameMap();
-        this.player1 = new Player(player1, Type.X);
-        this.player2 = new Player(player2, Type.O);
+        this.player1 = new Player(player1);
+        this.player2 = new Player(player2);
     }
 }
