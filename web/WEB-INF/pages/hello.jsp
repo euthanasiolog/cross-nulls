@@ -11,17 +11,17 @@
     <title>Hi!</title>
 </head>
 <body>
-<h1>Боже! Куда я попал???</h1>
+<h1 align="center">Боже! Куда я попал???</h1>
 <hr>
-<h3>Вы попали на межгалактический чемпионат по крестикам-ноликам!</h3>
+<h3 align="center">Вы попали на межгалактический чемпионат по крестикам-ноликам!</h3>
 <form action="/start">
-    <p><label for="player1">Игрок первый(X), введи имя!</label><br>
+    <p align="center"><label for="player1">Игрок первый(X), введи имя!</label><br>
         <input id="player1" name="player1"></p>
 
-    <p><label for="player2">Игрок второй(O), введи имя!</label><br>
+    <p align="center"><label for="player2">Игрок второй(O), введи имя!</label><br>
         <input id="player2" name="player2"></p>
     <label for="start">Ну что, готовы?</label><br>
-    <input id="start" type="submit">
+    <input align="right" id="start" type="submit">
 </form>
 </body>
 </html>

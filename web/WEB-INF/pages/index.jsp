@@ -13,8 +13,8 @@
     <title>Fight!</title>
   </head>
   <body>
-  <h4>Ходит <c:if test="${not empty nextName}">${nextName}</c:if></h4>
-
+  <c:if test="${not empty win}"><h1 align="center">ПОБЕДИЛ ${win}!!!</h1></c:if>
+  <h4 align="center"><c:if test="${not empty nextName}">Ходит ${nextName}</c:if></h4>
   <table border="3" width="300" height="300" align="center">
     <tr>
       <td>
