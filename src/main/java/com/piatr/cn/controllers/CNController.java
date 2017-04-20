@@ -17,25 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 public class CNController implements Print{
     private static final String INDEX = "index";
     private static final String NEXT_NAME = "nextName";
-    private String checkWin(GameMap gameMap){
-        String[] types = gameMap.getTypes();
-        for (int i=0; i<7;i=i+3){
-        if (types[i].equals(types[i+1])|types[i].equals(types[i+2])) return types[i];
-        }
-        for (int i=0;i<3;i++){
-            if (types[i].equals(types[i+3])|types[i].equals(types[i+6]))return types[i];
-        }
-        if (types[0].equals(types[4])|types[0].equals(types[8]))return types[0];
-        if (types[2].equals(types[4])|types[0].equals(types[6]))return types[2];
-        return null;
-    }
 
     public void print(HttpServletRequest request, ModelMap modelMap, Type type, Game game) {
         int index = Integer.parseInt(request.getParameter(INDEX));
         GameMap gameMap = game.getGameMap();
         String[] types = gameMap.getTypes();
-        types[index]=type.name();
-        if(checkWin(gameMap)!=null)modelMap.addAttribute(NEXT_NAME, type.name()+"WIN!");
+        types[index-1]=type.name();
+        if(gameMap.checkWin(gameMap)!=null)modelMap.addAttribute(NEXT_NAME, type.name()+" WIN!");
         for (int i=0;i<types.length;i++){
             modelMap.addAttribute("index"+String.valueOf(i+1), types[i]);
         }
