@@ -18,7 +18,7 @@ public class StartController {
 
     @RequestMapping(value = "/")
     public String helloPage(){
-        return "hello";
+        return "registration";
     }
 
     @RequestMapping(value = "/start")

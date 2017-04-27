@@ -13,17 +13,17 @@ public class GameMap {
         this.types = new String[9];
         for (int i=0;i<types.length;i++){types[i]="";}
     }
-    public String checkWin(GameMap gameMap){
+    public boolean checkWin(GameMap gameMap){
         String[] types = gameMap.getTypes();
         for (int i=0; i<7;i=i+3){
-            if ((types[i].equals(types[i+1])&types[i].equals(types[i+2]))& !Objects.equals(types[i], "")) return types[i];
+            if ((types[i].equals(types[i+1])&types[i].equals(types[i+2]))& !Objects.equals(types[i], "")) return true;
         }
         for (int i=0;i<3;i++){
-            if ((types[i].equals(types[i+3])&types[i].equals(types[i+6]))& !Objects.equals(types[i], ""))return types[i];
+            if ((types[i].equals(types[i+3])&types[i].equals(types[i+6]))& !Objects.equals(types[i], ""))return true;
         }
-        if ((types[0].equals(types[4])&types[0].equals(types[8]))& !Objects.equals(types[0], ""))return types[0];
-        if ((types[2].equals(types[4])&types[0].equals(types[6]))& !Objects.equals(types[2], ""))return types[2];
-        return null;
+        if ((types[0].equals(types[4])&types[0].equals(types[8]))& !Objects.equals(types[0], ""))return true;
+        if ((types[2].equals(types[4])&types[0].equals(types[6]))& !Objects.equals(types[2], ""))return true;
+        return false;
     }
 
     public String[] getTypes() {

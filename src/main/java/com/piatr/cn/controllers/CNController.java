@@ -19,8 +19,9 @@ public class CNController implements Print{
         int index = Integer.parseInt(request.getParameter(INDEX));
         GameMap gameMap = game.getGameMap();
         String[] types = gameMap.getTypes();
-        types[index-1]=type.name();
-        if(gameMap.checkWin(gameMap)!=null)modelMap.addAttribute("win", player.getName());
+        if(types[index - 1].equals(""))
+        {types[index-1]=type.name();
+        }else modelMap.addAttribute("type",type.name());
         for (int i=0;i<types.length;i++){
             modelMap.addAttribute("index"+String.valueOf(i+1), types[i]);
         }
@@ -30,10 +31,12 @@ public class CNController implements Print{
     public String printX (HttpServletRequest request, ModelMap modelMap){
         String id = request.getRemoteAddr();
         Game game = StartController.findGame(id);
-        if (game != null) {
+        if (game.getGameMap().checkWin(game.getGameMap()))
+        {modelMap.addAttribute("win", game.getPlayer1().getName());}
+        else{
             modelMap.addAttribute(NEXT_NAME, game.getPlayer2().getName());
-        }else  modelMap.addAttribute(NEXT_NAME, "");
-        modelMap.addAttribute("type","O");
+            modelMap.addAttribute("type","O");
+        }
         print(request, modelMap, Type.X, game, game.getPlayer1());
         return "index";
     }
@@ -42,10 +45,12 @@ public class CNController implements Print{
     public String printO (HttpServletRequest request, ModelMap modelMap){
         String id = request.getRemoteAddr();
         Game game = StartController.findGame(id);
-        if (game != null) {
+        if (game.getGameMap().checkWin(game.getGameMap()))
+        { modelMap.addAttribute("win", game.getPlayer2().getName());}
+        else{
             modelMap.addAttribute(NEXT_NAME, game.getPlayer1().getName());
-        }else  modelMap.addAttribute(NEXT_NAME, "");
-        modelMap.addAttribute("type","X");
+            modelMap.addAttribute("type","X");
+        }
         print(request, modelMap, Type.O, game, game.getPlayer2());
         return "index";
     }
